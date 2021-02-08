@@ -11,8 +11,9 @@ build: off  # будем использовать свой скрипт сбор
 install:
   # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
   - ps: -jar ./artifacts/app-ibank.jar -P:profile=test &
+  - ps: chmod +x gradlew
 
 build_script:
   - ps: ./gradlew test --info "-Dselenide.headless=true"
-  - ps: chmod +x gradlew
+  
 
