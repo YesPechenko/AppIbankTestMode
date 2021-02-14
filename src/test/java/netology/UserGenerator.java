@@ -5,7 +5,6 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.BeforeAll;
 
 import java.util.Locale;
 
@@ -20,7 +19,6 @@ public class UserGenerator {
             .log(LogDetail.ALL)
             .build();
 
-    @BeforeAll
     public static void makeRequest(Registration registration) {
         // сам запрос
         given() // "дано"

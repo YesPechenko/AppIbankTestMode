@@ -15,7 +15,7 @@ import static netology.UserGenerator.*;
 public class ApplbankTestModeTest {
 
     @BeforeEach
-    void Setup() {
+    void setUp() {
         open("http://localhost:9999");
     }
 
@@ -36,7 +36,8 @@ public class ApplbankTestModeTest {
         $("[name=password]").setValue(validValidAcBlockedUser.getPassword());
         $(".button__text").click();
         $(".notification_status_error").shouldBe(visible, Duration.ofMillis(5000));
-        $(".notification_visible[data-test-id=error-notification]").shouldHave(matchText("Ошибка! Пользователь заблокирован"));
+        $(".notification_visible[data-test-id=error-notification]")
+                .shouldHave(matchText("Ошибка! Пользователь заблокирован"));
     }
 
     @Test
@@ -46,7 +47,8 @@ public class ApplbankTestModeTest {
         $("[name=password]").setValue(userWithIncorrectPassword.getPassword());
         $(".button__text").click();
         $(".notification_status_error").shouldBe(visible, Duration.ofMillis(5000));
-        $(".notification_visible[data-test-id=error-notification]").shouldHave(matchText("Ошибка! Неверно указан логин или пароль"));
+        $(".notification_visible[data-test-id=error-notification]")
+                .shouldHave(matchText("Ошибка! Неверно указан логин или пароль"));
     }
 
     @Test
@@ -56,7 +58,8 @@ public class ApplbankTestModeTest {
         $("[name=password]").setValue(userWithIncorrectLogin.getPassword());
         $(".button__text").click();
         $(".notification_status_error").shouldBe(visible, Duration.ofMillis(5000));
-        $(".notification_visible[data-test-id=error-notification]").shouldHave(matchText("Ошибка! Неверно указан логин или пароль"));
+        $(".notification_visible[data-test-id=error-notification]")
+                .shouldHave(matchText("Ошибка! Неверно указан логин или пароль"));
     }
 
 }
